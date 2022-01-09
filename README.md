@@ -9,7 +9,7 @@
 
 
 ## Assesment Backend PT. Kledo Berhati Nyaman
-GET nama pegawai URL http://127.0.0.1:8000/api/pegawai?limit=2 (http://127.0.0.1:8000/api/pegawai?limit=2)
+- GET nama pegawai URL http://127.0.0.1:8000/api/pegawai?limit=2 (http://127.0.0.1:8000/api/pegawai?limit=2)
 
 ## About Laravel
 
