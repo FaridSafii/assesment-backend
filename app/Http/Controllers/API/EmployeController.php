@@ -33,7 +33,14 @@ class EmployeController extends Controller
             $request->validate([
                 'nama' => ['required','string','max:10','unique:employes'],
                 'total_gaji' =>['required','integer','between:4000000,10000000'],
-                ]);
+                ],
+                [
+                    'nama.required' => 'Nama is required',
+                    'total_gaji.required' => 'Gaji is required',
+                    'total_gaji.between' => 'Gaji Rp. 4.000.000 - Rp 10.000.000',
+                    'nama.max' => 'Jumlah karakter lebih dari 10'
+                ]
+            );
             Employe::create([
                 'nama' => $request->nama,
                 'total_gaji' => $request->total_gaji
