@@ -6,7 +6,7 @@ use App\Helpers\ResponseFormatter;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-
+use Exception;
 class EmployeController extends Controller
 {
     public function all(Request $request)
@@ -26,5 +26,27 @@ class EmployeController extends Controller
                     404
                 );
             }
+    } 
+    public function create(Request $request)
+    {
+        try {
+            $request->validate([
+                'nama' => ['required','string','max:10','unique:employes'],
+                'total_gaji' =>['required','integer','between:4000000,10000000'],
+                ]);
+            Employe::create([
+                'nama' => $request->nama,
+                'total_gaji' => $request->total_gaji
+            ]);
+            $nama = Employe::where('nama',$request->nama)->first();
+            return ResponseFormatter::success([
+                'pegawai' => $nama
+            ], 'Pegawai sudah terdaftar');
+        } catch (Exception $error) {
+            return ResponseFormatter::error([
+                'message' => 'Cek data',
+                'error' => $error
+            ], 'Cek kembali data',500);
+        }
     }
 }

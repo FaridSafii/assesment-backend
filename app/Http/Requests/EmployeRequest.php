@@ -24,8 +24,8 @@ class EmployeRequest extends FormRequest
     public function rules()
     {
         return [
-            'nama' => 'required|string|max:10',
-            'total_gaji' => 'required|integer|between:4000000,10000000',
+            //'nama' => 'required|string|max:10',
+            //'total_gaji' => 'required|integer|between:4000000,10000000',
         ];
     }
 }
