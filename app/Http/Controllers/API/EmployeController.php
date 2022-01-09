@@ -5,6 +5,7 @@ use App\Models\Employe;
 use App\Helpers\ResponseFormatter;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class EmployeController extends Controller
 {
